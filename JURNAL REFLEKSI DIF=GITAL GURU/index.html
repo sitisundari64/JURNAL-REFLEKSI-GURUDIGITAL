@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jurnal Refleksi Digital Guru</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Tombol Aksi (tidak ikut cetak) -->
+  <div class="action-bar no-print">
+    <div class="action-bar-inner">
+      <span class="action-label">✦ Jurnal Refleksi Digital</span>
+      <button id="btnUnduh" onclick="unduhPDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Unduh PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Halaman A4 -->
+  <div class="page-wrapper">
+    <div class="a4-page" id="jurnalPage">
+
+      <!-- Watermark -->
+      <div class="watermark" aria-hidden="true">Siti Sundari</div>
+
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-accent-line"></div>
+        <div class="header-content">
+          <div class="header-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="22" fill="#D6EAF8" stroke="#2980B9" stroke-width="2"/>
+              <path d="M14 34V16a2 2 0 012-2h16a2 2 0 012 2v18l-6-3-4 2-4-2-6 3z" fill="#2980B9" opacity="0.15"/>
+              <path d="M14 34V16a2 2 0 012-2h16a2 2 0 012 2v18l-6-3-4 2-4-2-6 3z" stroke="#2980B9" stroke-width="1.5" stroke-linejoin="round"/>
+              <line x1="18" y1="20" x2="30" y2="20" stroke="#2980B9" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="18" y1="24" x2="30" y2="24" stroke="#2980B9" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="18" y1="28" x2="24" y2="28" stroke="#2980B9" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="header-text">
+            <h1 class="main-title">JURNAL REFLEKSI DIGITAL</h1>
+            <p class="sub-title">G U R U</p>
+          </div>
+        </div>
+        <div class="header-accent-line bottom"></div>
+      </header>
+
+      <!-- Identitas Guru -->
+      <section class="section identitas-section">
+        <div class="section-label">IDENTITAS</div>
+        <div class="identitas-grid">
+          <div class="id-row">
+            <label>Minggu Ke</label>
+            <div class="id-field-wrap"><span class="colon">:</span><div class="editable-field" contenteditable="true" data-placeholder="Tulis minggu ke..."></div></div>
+          </div>
+          <div class="id-row">
+            <label>Nama Guru</label>
+            <div class="id-field-wrap"><span class="colon">:</span><div class="editable-field" contenteditable="true" data-placeholder="Nama lengkap guru..."></div></div>
+          </div>
+          <div class="id-row">
+            <label>Mata Pelajaran</label>
+            <div class="id-field-wrap"><span class="colon">:</span><div class="editable-field" contenteditable="true" data-placeholder="Mata pelajaran..."></div></div>
+          </div>
+          <div class="id-row">
+            <label>Kelas</label>
+            <div class="id-field-wrap"><span class="colon">:</span><div class="editable-field" contenteditable="true" data-placeholder="Kelas..."></div></div>
+          </div>
+          <div class="id-row">
+            <label>Tanggal</label>
+            <div class="id-field-wrap"><span class="colon">:</span><div class="editable-field" contenteditable="true" data-placeholder="Tanggal pengisian..."></div></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Refleksi Guru -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon blue">✦</div>
+          <h2 class="section-title">Refleksi Guru</h2>
+        </div>
+
+        <div class="refleksi-block">
+          <div class="refleksi-item">
+            <div class="refleksi-number">01</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Apa yang Sudah Saya Coba Minggu Ini?</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Tuliskan kegiatan, metode, atau pendekatan yang Anda coba terapkan minggu ini..."></div>
+            </div>
+          </div>
+          <div class="refleksi-item">
+            <div class="refleksi-number">02</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Apa yang Berhasil?</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Ceritakan hal-hal yang berjalan baik dan memberikan dampak positif..."></div>
+            </div>
+          </div>
+          <div class="refleksi-item">
+            <div class="refleksi-number">03</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Apa yang Perlu Diperbaiki?</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Identifikasi tantangan atau area yang membutuhkan perbaikan..."></div>
+            </div>
+          </div>
+          <div class="refleksi-item">
+            <div class="refleksi-number">04</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Pertanyaan atau Refleksi yang Muncul</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Tuliskan pertanyaan, gagasan, atau renungan yang hadir selama proses mengajar..."></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Umpan Balik Kepala Sekolah -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon teal">✦</div>
+          <h2 class="section-title">Umpan Balik Kepala Sekolah</h2>
+        </div>
+
+        <div class="refleksi-block">
+          <div class="refleksi-item teal-theme">
+            <div class="refleksi-number teal">A</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Apresiasi</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Tuliskan apresiasi terhadap upaya dan pencapaian guru..."></div>
+            </div>
+          </div>
+          <div class="refleksi-item teal-theme">
+            <div class="refleksi-number teal">B</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Saran Pengembangan</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Berikan saran konstruktif untuk pengembangan lebih lanjut..."></div>
+            </div>
+          </div>
+          <div class="refleksi-item teal-theme">
+            <div class="refleksi-number teal">C</div>
+            <div class="refleksi-content">
+              <div class="refleksi-question">Pertanyaan Reflektif</div>
+              <div class="editable-area" contenteditable="true" data-placeholder="Ajukan pertanyaan yang mendorong guru berpikir lebih mendalam..."></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Tindak Lanjut -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon gold">✦</div>
+          <h2 class="section-title">Tindak Lanjut Minggu Depan</h2>
+        </div>
+        <div class="tindak-lanjut-area">
+          <div class="editable-area tall" contenteditable="true" data-placeholder="Rencana konkret dan langkah-langkah yang akan dilakukan minggu depan berdasarkan refleksi ini..."></div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Tanda Tangan -->
+      <section class="section ttd-section">
+        <div class="section-label">PERSETUJUAN</div>
+        <div class="ttd-grid">
+          <div class="ttd-block">
+            <div class="ttd-title">Guru</div>
+            <div class="ttd-space"></div>
+            <div class="ttd-line">
+              <div class="editable-field short" contenteditable="true" data-placeholder="Nama Guru"></div>
+            </div>
+            <div class="ttd-hint">Tanda Tangan &amp; Nama</div>
+          </div>
+          <div class="ttd-stamp">
+            <div class="stamp-circle">
+              <span>Diketahui</span>
+            </div>
+          </div>
+          <div class="ttd-block">
+            <div class="ttd-title">Kepala Sekolah</div>
+            <div class="ttd-space"></div>
+            <div class="ttd-line">
+              <div class="editable-field short" contenteditable="true" data-placeholder="Nama Kepala Sekolah"></div>
+            </div>
+            <div class="ttd-hint">Tanda Tangan &amp; Nama</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div class="footer-line"></div>
+        <p class="footer-quote">"Guru Belajar, Murid Bertumbuh"</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
